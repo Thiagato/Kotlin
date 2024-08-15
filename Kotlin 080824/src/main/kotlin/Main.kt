@@ -1,123 +1,64 @@
-fun main() {
-    println("Hello World!")
+fun main(){
+    //arrays()
 
-//    exemploFor1()
-//    exemploFor2()
-//    exemploFor3()
-//    ifTernario()
-//    whenKotlin()
-//    whenKotlin2()
+    var carro1 = Carro()
 
-//    exercicio1()
-      exercicio2()
-}
-fun exemploFor1(){
-    //fori padrão crescente
-    for (i in 1..10){
-        println("valor do contador: $i")
-    }
-}
+    carro1.marca = "vousquivagem"
+    carro1.modelo = "cetram10"
 
-fun exemploFor2(){
-    //fori padrão decrescente
-    for (i in 10 downTo 1){
-        println("valor do contador decrescente: $i")
-    }
-}
+    carro1.acelerar()
 
-fun exemploFor3(){
-    //mostrar apenas impares
-    // com o step ele vai contando em 2 em 2
-    for (i in 1 .. 15 step 2){
-        println("Só os impares: $i")
-    }
+    var contato1 = Contato("brito", "telefone")
+
+    contato1.ligar()
+
+    //instancias diferentes de pessoa
+
+    var p1 = Pessoa("ENEAS", 78)
+    var p2 = Pessoa("britoll")//construtor de apenas nome
+    var p3 = Pessoa(10)
+    var p4 = Pessoa()
+
+
+    var jogo1 = Jogo("TL2", 1 , "comedia", 10f, "slaporra" )
+
+
+    var jogo2 = Jogo("",1 , "comedia", 10f, "slaporra" )
+
+    var jogo3 = Jogo()
+
+    print(jogo3)
 }
 
-fun ifTernario(){
-    var a = 10
-    var b = 30
-    var max = if(a>b) a else b
-    println("o maior valor é $max")
-}
 
-fun whenKotlin(){
-    var a = 10
 
-    when(a){
-        1 -> println("A variavel vale 1")
-        10 -> println("A variavel vale 10")
-        else -> println("a variavel n vale nenhum dos dois")
-    }
-    //similar a switch case
-}
+fun arrays() {
 
-fun whenKotlin2(){
-    var x = 10
 
-    when{
-        x % 2 == 0 -> println("x é par")
-        x % 2 != 0 -> println("X é impar")
-        else -> println("x é 0")
+    var numeros = arrayOf(1,2,3,4,5)
+
+    var nomes = arrayOf("joao","maria","jose")
+
+    var idades = Array(5) {0}
+
+
+    for (i in idades.indices){
+        idades[i] = i + 0
+        println(idades[i])
     }
 
+    var valores = mutableListOf<Int>()//array dinamico
+
+
+    valores.add(10)
+    valores.add(12)
+    valores.add(13)
+    valores.add(14)
+    valores.add(15)
+    valores.add(16)
+    valores.add(17)
+    valores.add(18)
+
+
+    println(valores.joinToString())
 }
-
-fun exercicio1(){
-    //calcular media
-
-    println("informe a nota da primeira prova")
-    var n1 = readln().toFloat()
-
-    println("informe a nota da primeira prova")
-    var n2 = readln().toFloat()
-
-    println("informe a nota da primeira prova")
-    var n3 = readln().toFloat()
-
-    var media = (n1+n2+n3) / 3
-
-    var mediaFormatada = String.format("%.2f", media)
-
-    if(media >= 7){
-        println("Aprovado com media $mediaFormatada")
-    } else
-        println("Reprovado com sucesso $mediaFormatada")
-}
-
-fun exercicio2(){
-    //par ou impar
-
-    println("digite o valor")
-    var valor = readln().toInt()
-
-    when{
-        valor % 2 == 0 -> println("$valor é par")
-        valor % 2 != 0 -> println("$valor é impar")
-        else -> println("nem tem numero")
-    }
-}
-
-fun exercicio3(){
-
-}
-
-fun exercicio7(){
-    //contar vogais numa palavra
-
-    println("digite a palavra")
-    var palavra = readln()
-
-    var quantVogais = 0
-    var quantConsoantes = 0
-
-
-    for (letra in palavra){
-        if (letra.lowercaseChar() in "aeiou"){
-            quantVogais++
-    } else {
-        quantConsoantes++
-    }
-    println("Existem $quantVogais vogais e $quantConsoantes consoantes")
-    }
-}
-
